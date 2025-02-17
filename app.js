@@ -9,11 +9,14 @@ let tentativas = 1;
 //paragrafo.innerHTML = `Escolha um número entre 1 e 100! `;
 
 // função exibirTextoNaTela criado para facilitar/abreviar codigo.
-function exibirTextoNaTela(tag, texto){
-    let campo = document.querySelector (tag);
+function exibirTextoNaTela(tag, texto) {
+    let campo = document.querySelector(tag);
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(texto);
     campo.innerHTML = texto;
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
-
+    utterThis.rate = 1.5;  // Ajuste a velocidade da fala
+    synth.speak(utterThis);
+    
 }
 
 function exibirMensagemInicial() {
