@@ -19,12 +19,27 @@ let tentativas = 1;
 //função corrigida para funcionar audio no celular.
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
-    const synth = window.speechSynthesis;
-    const utterThis = new SpeechSynthesisUtterance(texto);
-    campo.innerHTML = texto;
-    utterThis.rate = 1.5;  // Ajuste a velocidade da fala
-    synth.speak(utterThis);
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
+    
+// Verifica se a API de fala está disponível
+    if ('speechSynthesis' in window) {
+        const synth = window.speechSynthesis;
+        const utterThis = new SpeechSynthesisUtterance(texto);
+        utterThis.rate = 1.5;  // Ajusta a velocidade da fala
+
+        // Verifica se o navegador está permitindo a fala antes de falar
+        if (!synth.speaking) {
+            synth.speak(utterThis);
+        }
+    } else {
+        console.warn("A API de síntese de fala não está disponível.");
+    }
+
+    // Verifica se a biblioteca responsiveVoice está carregada antes de usar
+    if (typeof responsiveVoice !== "undefined") {
+        responsiveVoice.speak(texto, 'Brazilian Portuguese Female', { rate: 1.2 });
+    } else {
+        console.warn("A biblioteca responsiveVoice não está disponível.");
+    }
 }
 
 //função para mostrar a mensagem ao abrir o jogo.
