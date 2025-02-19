@@ -10,11 +10,13 @@ let tentativas = 1;
 
 // função exibirTextoNaTela criado para facilitar/abreviar codigo.
 
+// função antiga funciona no computador porém não funciona no celular. 
 //function exibirTextoNaTela(tag, texto){
 //    let campo = document.querySelector (tag);
 //    campo.innerHTML = texto;
 //    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});}
 
+//função corrigida para funcionar audio no celular.
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     const synth = window.speechSynthesis;
@@ -24,6 +26,7 @@ function exibirTextoNaTela(tag, texto) {
     synth.speak(utterThis);
     responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
+
 
 //função para mostrar a mensagem ao abrir o jogo.
 function exibirMensagemInicial() {
@@ -82,4 +85,5 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled',true);
 }
+
 
