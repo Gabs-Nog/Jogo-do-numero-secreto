@@ -1,5 +1,5 @@
 let listaDeSorteios = [];
-let valorMaximo = 10;
+let valorMaximo = 100;
 let numeroSecreto = gerarUmNumeroAleatorio();
 let tentativas = 1;
 
@@ -85,3 +85,4 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled',true);
 }
+
