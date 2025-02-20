@@ -1,5 +1,5 @@
 let listaDeSorteios = [];
-let valorMaximo = 10;
+let valorMaximo = 100;
 let numeroSecreto = gerarUmNumeroAleatorio();
 let tentativas = 1;
 
@@ -17,6 +17,7 @@ let tentativas = 1;
 //    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});}
 
 //função corrigida para funcionar audio no celular.
+
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     const synth = window.speechSynthesis;
